@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <StartAction>Project</StartAction>
-    <StartArguments>-apk "/Users/konh/Projects/Unity3D/UnityCrashAnalizer/Builds/build_mono.apk"</StartArguments>
+    <StartArguments>-apk "/Users/konh/Projects/Unity3D/UnityCrashAnalizer/Builds/build_mono.apk" -dump "/Users/konh/Projects/Unity3D/UnityCrashAnalizer/ExampleProject/Assets/testUnityMonoCrash.txt"</StartArguments>
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
 </Project>

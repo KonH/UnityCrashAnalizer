@@ -4,6 +4,7 @@ namespace CrashAnalyzer {
 	public class Arguments {
 		public bool IsValid { get; private set; }
 		public string ApkPath { get; private set; }
+		public string DumpPath { get; private set; }
 
 		public Arguments(string[] args) {
 			for ( int i = 0; i < args.Length; i++ ) {
@@ -12,9 +13,15 @@ namespace CrashAnalyzer {
 					case "-apk":
 						ApkPath = NextToken(args, i);
 						break;
+
+					case "-dump":
+						DumpPath = NextToken(args, i);
+						break;
 				}
 			}
-			IsValid = !string.IsNullOrEmpty(ApkPath);
+			IsValid = 
+				!string.IsNullOrEmpty(ApkPath) &&
+				!string.IsNullOrEmpty(DumpPath);
 		}
 
 		string NextToken(string[] args, int prevIndex) {

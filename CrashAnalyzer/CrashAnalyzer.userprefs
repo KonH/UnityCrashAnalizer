@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{954CA4CA-FA54-404D-8F4B-A208730AE023}|Default">
   <MonoDevelop.Ide.ItemProperties.CrashAnalyzer PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CrashAnalyzer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CrashDumpLine.cs">
     <Files>
-      <File FileName="ZipUnpacker.cs" Line="26" Column="44" />
-      <File FileName="CrashAnalyzer.cs" Line="13" Column="30" />
+      <File FileName="CrashAnalyzer.cs" Line="9" Column="4" />
+      <File FileName="CrashDump.cs" Line="64" Column="29" />
+      <File FileName="Arguments.cs" Line="24" Column="4" />
+      <File FileName="../ExampleProject/Assets/testUnityMonoCrash.txt" Line="16" Column="95" />
+      <File FileName="CrashDumpLine.cs" Line="5" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
