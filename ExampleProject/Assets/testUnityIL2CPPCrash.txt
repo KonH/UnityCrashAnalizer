@@ -1,0 +1,49 @@
+06-02 20:10:45.959 15475-15498/? A/libc: Fatal signal 11 (SIGSEGV), code 1, fault addr 0x10 in tid 15498 (UnityMain)
+                                         
+                                         [ 06-02 20:10:45.964  3012: 3012 W/         ]
+                                         debuggerd: handling request: pid=15475 uid=10375 gid=10375 tid=15498
+06-02 20:10:46.758 18361-18361/? A/DEBUG: *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+06-02 20:10:46.759 18361-18361/? A/DEBUG: Build fingerprint: 'samsung/zerofltexx/zeroflte:7.0/NRD90M/G920FXXU5EQCS:user/release-keys'
+06-02 20:10:46.759 18361-18361/? A/DEBUG: Revision: '11'
+06-02 20:10:46.759 18361-18361/? A/DEBUG: ABI: 'arm'
+06-02 20:10:46.759 18361-18361/? A/DEBUG: pid: 15475, tid: 15498, name: UnityMain  >>> com.konh.crashApp <<<
+06-02 20:10:46.759 18361-18361/? A/DEBUG: signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x10
+06-02 20:10:46.759 18361-18361/? A/DEBUG:     r0 00000010  r1 00000010  r2 00000053  r3 00000000
+06-02 20:10:46.759 18361-18361/? A/DEBUG:     r4 ffffffff  r5 00000000  r6 00000000  r7 00000002
+06-02 20:10:46.759 18361-18361/? A/DEBUG:     r8 ffffffff  r9 00000070  sl d60acf0e  fp f2c03ed8
+06-02 20:10:46.760 18361-18361/? A/DEBUG:     ip f6cd0d88  sp f2c03cd8  lr f6c98015  pc f6c60c10  cpsr 60070030
+06-02 20:10:46.840 18361-18361/? A/DEBUG: backtrace:
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #00 pc 00018c10  /system/lib/libc.so (strlen+71)
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #01 pc 00050011  /system/lib/libc.so (__strlen_chk+4)
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #02 pc 00040671  /system/lib/libc.so (__vfprintf+4552)
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #03 pc 00045297  /system/lib/libc.so (vsnprintf+134)
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #04 pc 003df8ec  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #05 pc 000fa878  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #06 pc 000f8a60  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #07 pc 000f8420  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #08 pc 0012df68  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #09 pc 0012dd20  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #10 pc 0012d8c0  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #11 pc 001179e8  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #12 pc 0030b7f8  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #13 pc 0030d968  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #14 pc 0030dec4  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #15 pc 0030e0b4  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.843 18361-18361/? A/DEBUG:     #16 pc 004aaf00  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #17 pc 00a3ee20  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #18 pc 004e58b4  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #19 pc 0036f0d8  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #20 pc 000fe64c  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #21 pc 0019f64c  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #22 pc 0019f010  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #23 pc 0019e710  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #24 pc 0040886c  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #25 pc 004c1584  /data/app/com.konh.crashApp-1/lib/arm/libil2cpp.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #26 pc 004cd868  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #27 pc 004ddd34  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #28 pc 004e5458  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #29 pc 001d6490  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #30 pc 00316d80  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #31 pc 005ec30c  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #32 pc 005eee9c  /data/app/com.konh.crashApp-1/lib/arm/libunity.so
+06-02 20:10:46.844 18361-18361/? A/DEBUG:     #33 pc 00016da9  /data/app/com.konh.crashApp-1/oat/arm/base.odex (offset 0x16000)
