@@ -13,8 +13,9 @@ namespace CrashAnalyzer {
 			_path = path;
 		}
 
-		public bool Unpack() {
+		public void Unpack() {
 			try {
+                Console.WriteLine($"Start extracting APK: '{_path}'");
 				var extension = ".zip";
 				var dstDirPath = _path.Substring(0, _path.Length - extension.Length);
 				if ( Directory.Exists(dstDirPath) ) {
@@ -23,12 +24,11 @@ namespace CrashAnalyzer {
 				ZipFile.ExtractToDirectory(_path, dstDirPath);
 				if ( Directory.Exists(dstDirPath) ) {
 					DirectoryPath = dstDirPath;
-					return true;
+                    Console.WriteLine($"APK extracted to '{DirectoryPath}'");
 				}
 			} catch(Exception e) {
 				Console.WriteLine($"Can't extract APK file from '{_path}': {e.Message}");
 			}
-			return false;
 		}
     }
 }

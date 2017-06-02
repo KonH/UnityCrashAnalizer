@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{954CA4CA-FA54-404D-8F4B-A208730AE023}|Default">
+  <MonoDevelop.Ide.ItemProperties.CrashAnalyzer PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CrashAnalyzer.cs">
+    <Files>
+      <File FileName="ZipUnpacker.cs" Line="26" Column="44" />
+      <File FileName="CrashAnalyzer.cs" Line="13" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
