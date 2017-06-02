@@ -1,8 +1,8 @@
 using System;
 
 namespace CrashAnalyzer {
-    public class Arguments {
-        public bool IsValid { get; private set; }
+	public class Arguments {
+		public bool IsValid { get; private set; }
 		public string ApkPath { get; private set; }
 
 		public Arguments(string[] args) {
@@ -24,5 +24,5 @@ namespace CrashAnalyzer {
 			}
 			return null;
 		}
-    }
+	}
 }

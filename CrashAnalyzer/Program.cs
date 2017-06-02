@@ -1,8 +1,8 @@
 ﻿using System;
 
 namespace CrashAnalyzer {
-    class Program {
-        static void Main(string[] args) {
+	class Program {
+		static void Main(string[] args) {
 			var arguments = new Arguments(args);
 			if ( arguments.IsValid ) {
 				CrashAnalyzer.Start(arguments.ApkPath);
@@ -10,6 +10,6 @@ namespace CrashAnalyzer {
 				Console.WriteLine("Usage:");
 				Console.WriteLine("-apk APK_PATH");
 			}
-        }
-    }
+		}
+	}
 }
