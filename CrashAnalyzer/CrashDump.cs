@@ -56,7 +56,8 @@ namespace CrashAnalyzer {
 					} else if ( path == null ) {
 						path = TakeToWhiteSpace(line, i, out i);
 					} else if ( desc == null ) {
-						desc = TakeToWhiteSpace(line, i, out i);
+						desc = TakeToEnd(line, i);
+						break;
 					}
 				}
 			}
@@ -85,6 +86,10 @@ namespace CrashAnalyzer {
 			}
 			lastIndex = i;
 			return result;
+		}
+
+		string TakeToEnd(string line, int startIndex) {
+			return line.Substring(startIndex);
 		}
 	}
 }

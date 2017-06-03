@@ -36,6 +36,20 @@ namespace CrashAnalyzer {
 			return -1;
 		}
 
+		bool IsFuncHeader(string line) {
+			return line.TrimEnd().EndsWith(">:", StringComparison.OrdinalIgnoreCase);
+		}
+
+		int FindFuncHeaderIndex(int callIndex) {
+			for (int i = callIndex; i >= 0; i-- ) {
+				var line = _contents[i];
+				if ( IsFuncHeader(line) ) {
+					return i;
+				}
+			}
+			return -1;
+		}
+
 		public bool Analyze(CrashDumpLine line, Output output) {
 			Console.WriteLine($"Start analyze line '{line.Number}'");
 			var normalizedAddress = NormalizeAddress(line.Address);
@@ -43,10 +57,14 @@ namespace CrashAnalyzer {
 			var libLineIndex = FindLineWithAddress(normalizedAddress);
 			if ( libLineIndex >= 0 ) {
 				var libLine = _contents[libLineIndex];
-				Console.WriteLine($"Line analyzed: '{line.Number}'");
-				var libEntry = new LibEntry(line, libLine);
-				output.AddEntry(libEntry);
-				return true;
+				var funcHeaderIndex = FindFuncHeaderIndex(libLineIndex);
+				if ( funcHeaderIndex >= 0 ) {
+					var funcHeader = _contents[funcHeaderIndex];
+					Console.WriteLine($"Line analyzed: '{line.Number}'");
+					var libEntry = new LibEntry(line, libLine, funcHeader);
+					output.AddEntry(libEntry);
+					return true;
+				}
 			}
 			Console.WriteLine($"Line didn't analyzed: '{line.Number}'");
 			return false;

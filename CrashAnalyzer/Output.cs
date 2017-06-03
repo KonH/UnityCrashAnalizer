@@ -29,7 +29,7 @@ namespace CrashAnalyzer {
 		public void AddEntry(LibEntry entry) {
 			AddLine(entry.CrashLine);
 			_lines.Add(LibLineSeparator);
-			_lines.Add(entry.LibLine);
+			_lines.Add($"{entry.LibLine}\nfrom\n{entry.FuncHeader}");
 			_lines.Add(LibLineSeparator);
 		}
 
