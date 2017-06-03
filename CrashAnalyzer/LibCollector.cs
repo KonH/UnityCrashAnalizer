@@ -18,7 +18,7 @@ namespace CrashAnalyzer {
 		}
 
 		bool IsApkLib(string path) {
-			return (path != null) && path.Contains(_bundleName);
+			return (path != null) && path.Contains(_bundleName) && !path.EndsWith(".dex", StringComparison.OrdinalIgnoreCase);
 		}
 
 		string ConvertToApkPath(string path) {
