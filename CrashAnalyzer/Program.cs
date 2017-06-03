@@ -12,6 +12,7 @@ namespace CrashAnalyzer {
 				Console.WriteLine("-apk APK_PATH // path to apk");
 				Console.WriteLine("-objdump OBJ_DUMP_PATH // path to Android NDK objdump utility (ex. arm-linux-androideabi-objdump)");
 			}
+			Console.ReadKey();
 		}
 	}
 }
