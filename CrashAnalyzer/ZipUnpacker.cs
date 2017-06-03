@@ -15,13 +15,14 @@ namespace CrashAnalyzer {
 
 		public void Unpack() {
 			try {
-				Console.WriteLine($"Start extracting APK: '{_path}'");
 				var extension = ".zip";
 				var dstDirPath = _path.Substring(0, _path.Length - extension.Length);
 				if ( Directory.Exists(dstDirPath) ) {
-					Directory.Delete(dstDirPath, true);
+					Console.WriteLine($"APK '{_path}' already extracted.");
+				} else {
+					Console.WriteLine($"Start extracting APK: '{_path}'");
+					ZipFile.ExtractToDirectory(_path, dstDirPath);
 				}
-				ZipFile.ExtractToDirectory(_path, dstDirPath);
 				if ( Directory.Exists(dstDirPath) ) {
 					DirectoryPath = dstDirPath;
 					Console.WriteLine($"APK extracted to '{DirectoryPath}'");

@@ -17,21 +17,25 @@ namespace CrashAnalyzer {
 
 		public void Dump() {
 			try {
-				Console.WriteLine($"Start dump file: '{_libPath}' using '{_objDumpPath}'");
-				var args = $"-S {_libPath} -C";
-				var startInfo = new ProcessStartInfo() {
-					FileName = _objDumpPath,
-					Arguments = args,
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					CreateNoWindow = true
-				};
-				var proc = Process.Start(startInfo);
-				proc.Start();
-				var output = proc.StandardOutput.ReadToEnd();
 				var outputPath = _libPath + ".txt";
-				File.WriteAllText(outputPath, output);
-				Console.WriteLine($"Dump file for '{_libPath}' is saved to '{outputPath}'");
+				if ( File.Exists(outputPath) ) {
+					Console.WriteLine($"Dump file {outputPath} already exist.");
+				} else {
+					Console.WriteLine($"Start dump file: '{_libPath}' using '{_objDumpPath}'");
+					var args = $"-S {_libPath} -C";
+					var startInfo = new ProcessStartInfo() {
+						FileName = _objDumpPath,
+						Arguments = args,
+						UseShellExecute = false,
+						RedirectStandardOutput = true,
+						CreateNoWindow = true
+					};
+					var proc = Process.Start(startInfo);
+					proc.Start();
+					var output = proc.StandardOutput.ReadToEnd();
+					File.WriteAllText(outputPath, output);
+					Console.WriteLine($"Dump file for '{_libPath}' is saved to '{outputPath}'");
+				}
 				DumpPath = outputPath;
 			} catch ( Exception e ) {
 				Console.WriteLine($"Failed to dump file: '{_libPath}': '{e.Message}'");
