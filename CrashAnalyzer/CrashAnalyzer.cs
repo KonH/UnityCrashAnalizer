@@ -9,7 +9,7 @@ namespace CrashAnalyzer {
 			var dump = new CrashDump(args.DumpPath);
 			dump.Resolve();
 
-			var collector = new LibCollector(apkDir, dump.Lines);
+			var collector = new LibCollector(args.BundleName, apkDir, dump.Lines);
 			collector.FindApkLibPathes();
 
 			var libDumps = FindLibDumps(args.ObjDumpPath, collector.ApkLibPathes);

@@ -7,16 +7,18 @@ namespace CrashAnalyzer {
 
 		public Dictionary<string, string> ApkLibPathes { get; private set; } 
 
-		List<CrashDumpLine> _lines = null;
+		string _bundleName = null;
 		string _apkDirPath = null;
+		List<CrashDumpLine> _lines = null;
 
-		public LibCollector(string apkDirPath, List<CrashDumpLine> lines) {
+		public LibCollector(string bundleName, string apkDirPath, List<CrashDumpLine> lines) {
+			_bundleName = bundleName;
 			_apkDirPath = apkDirPath;
 			_lines = lines;
 		}
 
 		bool IsApkLib(string path) {
-			return (path != null) && path.Contains("/app/");
+			return (path != null) && path.Contains(_bundleName);
 		}
 
 		string ConvertToApkPath(string path) {
