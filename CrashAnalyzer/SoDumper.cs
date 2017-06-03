@@ -5,19 +5,20 @@ using System.Diagnostics;
 namespace CrashAnalyzer {
 	public class SoDumper {
 
-		string _path = null;
+		string _objDumpPath = null;
+		string _libPath = null;
 
-		public SoDumper(string path) {
-			_path = path;
+		public SoDumper(string objDumpPath, string libPath) {
+			_objDumpPath = objDumpPath;
+			_libPath = libPath;
 		}
 
 		public void Dump() {
 			try {
-				Console.WriteLine($"Start dump file: '{_path}'");
-				var toolPath = "/Users/konh/Library/Developer/Xamarin/android-ndk/android-ndk-r10e/toolchains/arm-linux-androideabi-4.8/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-objdump";
-				var args = $"-S {_path} -C";
+				Console.WriteLine($"Start dump file: '{_libPath}' using '{_objDumpPath}'");
+				var args = $"-S {_libPath} -C";
 				var startInfo = new ProcessStartInfo() {
-					FileName = toolPath,
+					FileName = _objDumpPath,
 					Arguments = args,
 					UseShellExecute = false,
 					RedirectStandardOutput = true,
@@ -26,11 +27,11 @@ namespace CrashAnalyzer {
 				var proc = Process.Start(startInfo);
 				proc.Start();
 				var output = proc.StandardOutput.ReadToEnd();
-				var outputPath = _path + ".txt";
+				var outputPath = _libPath + ".txt";
 				File.WriteAllText(outputPath, output);
-				Console.WriteLine($"Dump file for '{_path}' is saved to '{outputPath}'");
+				Console.WriteLine($"Dump file for '{_libPath}' is saved to '{outputPath}'");
 			} catch ( Exception e ) {
-				Console.WriteLine($"Failed to dump file: '{_path}': '{e.Message}'");
+				Console.WriteLine($"Failed to dump file: '{_libPath}': '{e.Message}'");
 			} 
 		}
 	}
