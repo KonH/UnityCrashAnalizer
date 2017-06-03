@@ -60,7 +60,7 @@ namespace CrashAnalyzer {
 					}
 				}
 			}
-			if (!string.IsNullOrEmpty(number) && !string.IsNullOrEmpty(address) && !string.IsNullOrEmpty(path)) {
+			if ( !string.IsNullOrEmpty(number) && !string.IsNullOrEmpty(address) && !string.IsNullOrEmpty(path) ) {
 				var crashLine = new CrashDumpLine(number, address, path, desc);
 				Lines.Add(crashLine);
 				Console.WriteLine($"'{crashLine.Number}', '{crashLine.Address}', '{crashLine.Path}', '{crashLine.Desc}'");
@@ -74,8 +74,12 @@ namespace CrashAnalyzer {
 			int i = startIndex;
 			for (; i < line.Length; i++ ) {
 				var c = line[i];
-				if ( (result != null) && char.IsWhiteSpace(c) ) {
-					break;
+				if ( char.IsWhiteSpace(c) ) {
+					if (result != null) {
+						break;
+					} else {
+						continue;
+					}
 				}
 				result += c;
 			}

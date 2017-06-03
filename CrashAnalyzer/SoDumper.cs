@@ -5,6 +5,8 @@ using System.Diagnostics;
 namespace CrashAnalyzer {
 	public class SoDumper {
 
+		public string DumpPath { get; private set; }
+
 		string _objDumpPath = null;
 		string _libPath = null;
 
@@ -30,6 +32,7 @@ namespace CrashAnalyzer {
 				var outputPath = _libPath + ".txt";
 				File.WriteAllText(outputPath, output);
 				Console.WriteLine($"Dump file for '{_libPath}' is saved to '{outputPath}'");
+				DumpPath = outputPath;
 			} catch ( Exception e ) {
 				Console.WriteLine($"Failed to dump file: '{_libPath}': '{e.Message}'");
 			} 

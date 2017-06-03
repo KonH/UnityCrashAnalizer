@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace CrashAnalyzer {
 	public class LibCollector {
 
-		public List<string> ApkLibPathes { get; private set; } 
+		public Dictionary<string, string> ApkLibPathes { get; private set; } 
 
 		List<CrashDumpLine> _lines = null;
 		string _apkDirPath = null;
@@ -39,12 +39,16 @@ namespace CrashAnalyzer {
 
 		public void FindApkLibPathes() {
 			Console.WriteLine("Start analyze apk libs.");
-			ApkLibPathes = new List<string>();
+			ApkLibPathes = new Dictionary<string, string>();
 			foreach (var line in _lines) {
-				if (IsApkLib(line.Path)) {
-					var convertedPath = ConvertToApkPath(line.Path);
-					if (!string.IsNullOrEmpty(convertedPath) && !ApkLibPathes.Contains(convertedPath)) {
-						ApkLibPathes.Add(convertedPath);
+				var path = line.Path;
+				if( ApkLibPathes.ContainsKey(path) ) {
+					continue;
+				}
+				if ( IsApkLib(line.Path) ) {
+					var convertedPath = ConvertToApkPath(path);
+					if ( !string.IsNullOrEmpty(convertedPath) ) {
+						ApkLibPathes.Add(path, convertedPath);
 					}
 				}
 			}
